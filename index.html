@@ -73,13 +73,15 @@
         key.classList.add('playing');
     });
 
-    function removeTransition (){
+    function removeTransition (e){
         if(e.propertyName !='transform') return;
+        // remove transition
+        this.classList.remove('playing');
     }
 
     // listening to all keys
     const keys = document.querySelectorAll('.key');
-    // each key gets an event listener added (ransitionend) to it and when transition ends it is removed
+    // each key gets an event listener added (transitionend) to it and when transition ends it is removed
     keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 </script>
 
