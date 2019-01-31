@@ -68,8 +68,19 @@
         if(!audio) return; // stop function if no audio exists
         audio.currentTime = 0; // sound after repetitively clicking on item 
         audio.play();
-        console.log(key);
+
+        // selecting classList to implement css effects
+        key.classList.add('playing');
     });
+
+    function removeTransition (){
+        if(e.propertyName !='transform') return;
+    }
+
+    // listening to all keys
+    const keys = document.querySelectorAll('.key');
+    // each key gets an event listener added (ransitionend) to it and when transition ends it is removed
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 </script>
 
 
